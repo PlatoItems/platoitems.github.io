@@ -13,13 +13,14 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.widgets.min.js"></script>
         <style type="text/css">
-            h1 { margin:0; margin-top:10px; margin-bottom:10px; padding:0; font-size:40pt; }
-            p  { font-size:12pt; }
+            h1    { margin:0; margin-top:10px; margin-bottom:10px; padding:0; font-size:40pt; }
+            p     { font-size:12pt; }
         </style>
         <script type="text/javascript">
             $(function(){
                 $("#items").tablesorter({
                     theme         : 'bootstrap',
+                    widthFixed    : true,
                   //headers       : { 0 : { sorter : false } },
                     widgets       : [ 'stickyHeaders', 'filter' ],
                     widgetOptions : {
@@ -39,13 +40,13 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <p><b>Last Updated:</b> 04/05/2022 23:25 GMT</p>
+                    <p><b>Last Updated:</b> 04/05/2022 23:53 GMT</p>
                     <p><b>Search:</b> <input id="filter" data-column="all" /></p>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <table id="items" class="table table-bordered table-striped">
+                    <table id="items" class="table table-sm table-bordered table-striped">
                         <thead class="thead-dark">
                             <tr>
                                 <th class="sorter-true">Type</th>
