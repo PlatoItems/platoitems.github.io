@@ -13,8 +13,10 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.widgets.min.js"></script>
         <style type="text/css">
-            h1    { margin:0; margin-top:10px; margin-bottom:10px; padding:0; font-size:40pt; }
-            p     { font-size:12pt; }
+            h1 { margin:0; margin-top:10px; margin-bottom:10px; padding:0; font-size:40pt; }
+            p  { font-size:12pt; }
+            th { text-align:center; }
+            td { text-align:center; }
         </style>
         <script type="text/javascript">
             $(function(){
@@ -22,7 +24,7 @@
                     theme         : 'bootstrap',
                     widthFixed    : true,
                   //headers       : { 0 : { sorter : false } },
-                    widgets       : [ 'stickyHeaders', 'filter' ],
+                    widgets       : [ 'stickyHeaders', 'filter', 'zebra' ],
                     widgetOptions : {
                         filter_columnFilters : false,
                         filter_external      : '#filter',
@@ -34,19 +36,15 @@
     <body>    
         <div class="container-fluid">
             <div class="row">
-                <div class="col">
+                <div class="col text-center">
                     <h1>Plato Items</h1>
+                    <p><b>Last Updated:</b> 05/05/2022 00:36 GMT</p>
+                    <p><input id="filter" data-column="all" /></p>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <p><b>Last Updated:</b> 05/05/2022 00:12 GMT</p>
-                    <p><b>Search:</b> <input id="filter" data-column="all" /></p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <table id="items" class="table table-sm table-bordered table-striped small">
+                    <table id="items" class="table table-sm table-bordered small">
                         <thead class="thead-dark">
                             <tr>
                                 <th class="w-25 sorter-true">Type</th>
