@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Plato Items</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+        <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/css/theme.default.min.css">-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/css/theme.bootstrap_4.min.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.widgets.min.js"></script>
+        <style type="text/css">
+            h1                { margin:0; margin-top:30px; margin-bottom:10px; padding:0; font-size:40pt; }
+            p                 { font-size:12pt; }
+            tr                { padding:0; }
+            th                { padding:3px !important; text-align:center; }
+            td                { padding:3px !important; text-align:center; vertical-align:middle !important; }
+            input             { width:260px !important; }
+            button            { width:80px; font:14px/20px Arial,Sans-serif !important; font-weight:bold !important; background-color:#343a40 !important; }
+            tbody tr:hover td { background-color:#F2F2F2; }
+        </style>
+        <script type="text/javascript">
+            $(function(){
+                $("#items").tablesorter({
+                    theme         : 'bootstrap',
+                    widthFixed    : true,
+                  //headers       : { 0 : { sorter : false } },
+                    widgets       : [ 'stickyHeaders', 'filter' ],
+                    widgetOptions : {
+                        filter_columnFilters : false,
+                        filter_liveSearch    : false,
+                        filter_external      : '#filter',
+                        filter_reset         : '#reset',
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col text-center">
+                    <h1>Plato Items</h1>
+                    <p><b>Last Updated:</b> {{ page.datetime }}</p>
+                    <div class="row justify-content-center">
+                        <div class="">
+                            <div class="form-group">
+                                <input id="filter" class="form-control" type="text" data-column="all" />
+                            </div>
+                            <div class="form-group">
+                                <button id="" class="btn btn-secondary mb-2">Search</button>
+                                &nbsp;
+                                <button id="reset" class="btn btn-secondary mb-2">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {{ content }}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
