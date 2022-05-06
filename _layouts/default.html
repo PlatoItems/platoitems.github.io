@@ -13,7 +13,7 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.widgets.min.js"></script>
         <style type="text/css">
-            h1                { margin:0; margin-top:30px; margin-bottom:10px; padding:0; font-size:40pt; }
+            h1                { margin:0; margin-top:30px; margin-bottom:30px; padding:0; font-size:40pt; }
             p                 { font-size:12pt; }
             tr                { padding:0; }
             th                { padding:3px !important; text-align:center; }
@@ -30,10 +30,11 @@
                   //headers       : { 0 : { sorter : false } },
                     widgets       : [ 'stickyHeaders', 'filter' ],
                     widgetOptions : {
-                        filter_columnFilters : false,
-                        filter_liveSearch    : false,
-                        filter_external      : '#filter',
-                        filter_reset         : '#reset',
+                        filter_columnFilters  : false,
+                        filter_liveSearch     : false,
+                        filter_searchFiltered : true,
+                        filter_external       : '#filter',
+                        filter_reset          : '#reset',
                     }
                 });
             });
