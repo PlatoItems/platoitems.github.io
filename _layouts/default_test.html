@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Plato Items</title>        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css">        
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>        
+        <style type="text/css">
+        
+            body
+            {
+                margin:0;
+                padding:0;
+                padding-top:30px;
+                padding-bottom:60px;
+                color:#343A40;
+            }
+            
+            h1
+            {
+                margin:0;
+                padding:0;
+                font-size:40pt;
+            }
+            
+            p
+            {
+                font-size:12pt;
+            }
+            
+            table
+            {
+                width:100% !important;
+            }
+            
+            tr
+            {
+                padding:0;
+            }
+            
+            th
+            {
+                padding:3px !important;
+                text-align:center;
+            }
+            
+            td
+            {
+                padding:3px !important;
+                text-align:center;
+                vertical-align:middle !important;
+            }          
+            
+            tbody tr:hover td
+            {
+                background-color:#F2F2F2;
+            }
+
+            input:focus,
+            input:hover,
+            select:focus,
+            select:hover
+            {
+                border-color:transparent !important;
+                box-shadow:inset 0 1px 1px #F2F2F2, 0 0 8px #343A40 !important;
+            }
+            
+            .pagination > li > a
+            {
+                color:#343A40 !important;
+                padding-left:8px !important;
+                padding-right:8px !important;
+            }
+
+            .pagination > li.active > a
+            {
+                color:#ffffff !important;
+                background-color:#343A40 !important;
+                border:1px solid #DEE2E6 !important;
+            }
+
+            .pagination > li > a:focus,
+            .pagination > li > span:focus,
+            .pagination > li > a:hover,
+            .pagination > li > span:hover
+            {
+                box-shadow:none !important;
+                background-color:#FFFFFF;
+                border:1px solid #DEE2E6 !important;
+            }
+            
+            #myloading
+            {
+                display:block;
+                text-align:center;
+            }
+            
+            #myloading img
+            {
+                width:160px;
+            }
+            
+            #mytable
+            {
+                display:none;
+            }
+            
+            #items_filter input,
+            #items_filter select
+            {
+                width:200px !important;
+                margin:0 !important;
+            }
+            
+        </style>
+        <script type="text/javascript">
+
+            //////////////////////////////////////////////////
+        
+            $( document ).ready( on_ready );
+            
+            //////////////////////////////////////////////////
+            
+            function on_ready ( ) {
+            
+                var table = $( '#items' ).DataTable
+                ( {
+                    'search'       : { 'search' : decodeURI( location.hash.substr( 1 ) ) },
+                    'order'        : [ ],
+                    'initComplete' : on_table,
+                    'language'     :
+                    {
+                        'lengthMenu'        : '_MENU_',
+                        'info'              : '_START_ to _END_ of _TOTAL_ entries',
+                        'infoFiltered'      : '(_MAX_ total entries)',
+                        'infoEmpty'         : '0 to 0 of 0 entries',
+                        'search'            : '',
+                        'searchPlaceholder' : '',
+                        'paginate'          : { 'previous' : '&lt;', 'next' : '&gt;' },
+                    },
+                    'columnDefs' :
+                    [
+                        { 'targets' : [ 4, 5, 6 ], 'visible' : false },
+                    ],
+                } );
+
+                table.on( 'search.dt', function ( ) { 
+
+                    history.pushState( null, null, '#' + table.search( ) );
+                    
+                } );
+                
+            }
+            
+            //////////////////////////////////////////////////
+            
+            function on_table ( settings, json ) {
+                
+                var api = this.api( );
+
+                            $( '<br>'                                                                                  ).prependTo( '#items_filter' );
+                var label = $( '<label></label>'                                                                       ).prependTo( '#items_filter' );
+                var menu  = $( '<select class="custom-select custom-select-sm form-control form-control-sm"></select>' ).appendTo ( label           );
+                            $( '<option value="=">All</option>'                                                        ).appendTo ( menu            );
+                            $( '<option disabled>----------</option>'                                                  ).appendTo ( menu            );
+                            $( '<option value="4=1">New</option>'                                                      ).appendTo ( menu            );
+                            $( '<option value="6=1">Rare</option>'                                                     ).appendTo ( menu            );
+                            $( '<option value="5=1">Tournament</option>'                                               ).appendTo ( menu            );
+                            $( '<option disabled>----------</option>'                                                  ).appendTo ( menu            );
+
+                api.column( 0 ).data( ).unique( ).sort( ).each( function ( type ) {
+                
+                    menu.append( '<option value="0=' + type + '">' + type + '</option>' );
+                    
+                } );
+
+                menu.on( 'change', function ( ) {
+                
+                    var val = $.fn.dataTable.util.escapeRegex( $( this ).val( ) ).split( '=', 2 );
+
+                    api.columns(        ).search( '' );
+                    api.column ( val[0] ).search( val[0] ? '^' + val[1] + '$' : '', true, false ).draw( );
+                    
+                } );
+
+                $( '#myloading' ).css( 'display', 'none'  );
+                $( '#mytable'   ).css( 'display', 'block' );
+                $( this ).show( );
+                
+            }
+            
+            //////////////////////////////////////////////////
+            
+            function mymodal_open ( url ) {
+                
+                $( '#myimage' ).attr ( 'src', ''  );
+                $( '#myimage' ).attr ( 'src', url );
+                $( '#mymodal' ).modal( 'show'     );
+                
+            }
+            
+            //////////////////////////////////////////////////
+            
+        </script>
+    </head>
+    <body oncontextmenu="return false;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col text-center">
+                    <h1>Plato Items</h1>
+                    <p><b>Last Updated:</b> {{ page.datetime }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div id="myloading">
+                        <img src="https://platoitems.github.io/docs/assets/images/loading.gif" />
+                    </div>
+                    <div id="mytable">
+{{ content }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="mymodal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <img id="myimage" class="img-fluid" src="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
