@@ -19,6 +19,7 @@
                 padding:0;
                 padding-top:30px;
                 padding-bottom:60px;
+                color:#343A40;
             }
             
             h1
@@ -31,6 +32,11 @@
             p
             {
                 font-size:12pt;
+            }
+            
+            table
+            {
+                width:100% !important;
             }
             
             tr
@@ -64,10 +70,12 @@
                 border-color:transparent !important;
                 box-shadow:inset 0 1px 1px #F2F2F2, 0 0 8px #343A40 !important;
             }
-
+            
             .pagination > li > a
             {
-                color: #343A40 !important;
+                color:#343A40 !important;
+                padding-left:8px !important;
+                padding-right:8px !important;
             }
 
             .pagination > li.active > a
@@ -87,21 +95,127 @@
                 border:1px solid #DEE2E6 !important;
             }
             
+            #myloading
+            {
+                display:block;
+                text-align:center;
+            }
+            
+            #myloading img
+            {
+                width:160px;
+            }
+            
+            #mytable
+            {
+                display:none;
+            }
+            
+            #items_filter input,
+            #items_filter select
+            {
+                width:200px !important;
+                margin:0 !important;
+            }
+            
+            #items_filter input
+            {
+                padding-left:30px;
+                background:url(https://platoitems.github.io/docs/assets/images/search.png) no-repeat 8px center;
+                background-size:14px;
+                -webkit-background-size:14px;
+                -moz-background-size:14px;
+                -o-background-size:14px;
+            }
+            
         </style>
         <script type="text/javascript">
+
+            //////////////////////////////////////////////////
         
-            $(document).ready( function () {
-                $('#items').DataTable({
-                    'order'    : [ ],
-                    'language' : { 'paginate' : { 'previous' : '&lt;', 'next' : '&gt;' } } 
-                });
-            });
+            $( document ).ready( on_ready );
             
-            function mymodal_open( url ) {
-                $('#myimage').attr('src','');
-                $('#myimage').attr('src',url);
-                $('#mymodal').modal('show');
+            //////////////////////////////////////////////////
+            
+            function on_ready ( ) {
+            
+                var table = $( '#items' ).DataTable
+                ( {
+                    'search'       : { 'search' : decodeURI( location.hash.substr( 1 ) ) },
+                    'order'        : [ ],
+                    'initComplete' : on_table,
+                    'language'     :
+                    {
+                        'lengthMenu'        : '_MENU_',
+                        'info'              : '_START_ to _END_ of _TOTAL_ entries',
+                        'infoFiltered'      : '(_MAX_ total entries)',
+                        'infoEmpty'         : '0 to 0 of 0 entries',
+                        'search'            : '',
+                        'searchPlaceholder' : '',
+                        'paginate'          : { 'previous' : '&lt;', 'next' : '&gt;' },
+                    },
+                    'columnDefs' :
+                    [
+                        { 'targets' : [ 4, 5, 6 ], 'visible' : false },
+                    ],
+                } );
+
+                table.on( 'search.dt', function ( ) { 
+
+                    history.pushState( null, null, '#' + table.search( ) );
+                    
+                } );
+                
             }
+            
+            //////////////////////////////////////////////////
+            
+            function on_table ( settings, json ) {
+                
+                var api = this.api( );
+
+                            $( '<br>'                                                                                  ).prependTo( '#items_filter' );
+                var label = $( '<label></label>'                                                                       ).prependTo( '#items_filter' );
+                var menu  = $( '<select class="custom-select custom-select-sm form-control form-control-sm"></select>' ).appendTo ( label           );
+                            $( '<option value="=">All</option>'                                                        ).appendTo ( menu            );
+                            $( '<option disabled>----------</option>'                                                  ).appendTo ( menu            );
+                            $( '<option value="4=1">New</option>'                                                      ).appendTo ( menu            );
+                            $( '<option value="6=1">Rare</option>'                                                     ).appendTo ( menu            );
+                            $( '<option value="5=1">Tournament</option>'                                               ).appendTo ( menu            );
+                            $( '<option disabled>----------</option>'                                                  ).appendTo ( menu            );
+
+                api.column( 0 ).data( ).unique( ).sort( ).each( function ( type ) {
+                
+                    menu.append( '<option value="0=' + type + '">' + type + '</option>' );
+                    
+                } );
+
+                menu.on( 'change', function ( ) {
+                
+                    var val = $.fn.dataTable.util.escapeRegex( $( this ).val( ) ).split( '=', 2 );
+
+                    api.columns(        ).search( '' );
+                    api.column ( val[0] ).search( val[0] ? '^' + val[1] + '$' : '', true, false ).draw( );
+                    
+                } );
+
+                $( '#myloading' ).css( 'display', 'none'  );
+                $( '#mytable'   ).css( 'display', 'block' );
+                $( this ).show( );
+                
+            }
+            
+            //////////////////////////////////////////////////
+            
+            function mymodal_open ( url ) {
+                
+                $( '#myimage' ).attr ( 'src', ''  );
+                $( '#myimage' ).attr ( 'src', url );
+                $( '#mymodal' ).modal( 'show'     );
+                
+            }
+            
+            //////////////////////////////////////////////////
             
         </script>
     </head>
@@ -115,7 +229,12 @@
             </div>
             <div class="row">
                 <div class="col">
+                    <div id="myloading">
+                        <img src="https://platoitems.github.io/docs/assets/images/loading.gif" />
+                    </div>
+                    <div id="mytable">
 {{ content }}
+                    </div>
                 </div>
             </div>
         </div>
