@@ -13,12 +13,18 @@
         <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>        
         <style type="text/css">
         
+            html
+            {
+                margin:0;
+                padding:0;
+                height:100%;
+            }
+            
             body
             {
                 margin:0;
                 padding:0;
-                padding-top:30px;
-                padding-bottom:60px;
+                height:100%;
                 color:#343A40;
             }
             
@@ -61,6 +67,12 @@
             {
                 background-color:#F2F2F2;
             }
+            
+            input,
+            select
+            {
+                font-size:11pt !important;
+            }
 
             input:focus,
             input:hover,
@@ -98,7 +110,6 @@
             #myloading
             {
                 display:block;
-                text-align:center;
             }
             
             #myloading img
@@ -106,9 +117,11 @@
                 width:160px;
             }
             
-            #mytable
+            #myloaded
             {
                 display:none;
+                padding-top:30px;
+                padding-bottom:60px;
             }
             
             #items_filter input,
@@ -120,12 +133,33 @@
             
             #items_filter input
             {
-                padding-left:30px;
+                padding-left:29px;
+                text-indent:0 !important;
                 background:url(https://platoitems.github.io/docs/assets/images/search.png) no-repeat 8px center;
+                background-color:#FFFFFF !important;
                 background-size:14px;
                 -webkit-background-size:14px;
                 -moz-background-size:14px;
                 -o-background-size:14px;
+            }
+            
+            /*
+            #items_filter select
+            {
+                padding-left:29px;
+                text-indent:0 !important;
+                background:url(https://platoitems.github.io/docs/assets/images/category.png) no-repeat 8px center;
+                background-color:#FFFFFF !important;
+                background-size:14px;
+                -webkit-background-size:14px;
+                -moz-background-size:14px;
+                -o-background-size:14px;
+            }
+            */
+            
+            #items_filter input::-webkit-search-cancel-button
+            {
+                
             }
             
         </style>
@@ -143,7 +177,7 @@
                 ( {
                     'search'       : { 'search' : decodeURI( location.hash.substr( 1 ) ) },
                     'order'        : [ ],
-                    'initComplete' : on_table,
+                    'initComplete' : on_table, // function ( ) { setTimeout( on_table.bind( this ), 1000 ) },
                     'language'     :
                     {
                         'lengthMenu'        : '_MENU_',
@@ -198,11 +232,12 @@
                     api.column ( val[0] ).search( val[0] ? '^' + val[1] + '$' : '', true, false ).draw( );
                     
                 } );
+                
+                $( this ).show( );
 
                 $( '#myloading' ).css( 'display', 'none'  );
-                $( '#mytable'   ).css( 'display', 'block' );
-                $( this ).show( );
-                
+                $( '#myloaded'  ).css( 'display', 'block' );
+
             }
             
             //////////////////////////////////////////////////
@@ -220,7 +255,14 @@
         </script>
     </head>
     <body oncontextmenu="return false;">
-        <div class="container-fluid">
+        <div id="myloading" class="container-fluid">
+            <div class="row">
+                <div class="col vh-100 d-flex justify-content-center align-items-center">
+                    <img src="https://platoitems.github.io/docs/assets/images/loading.gif" />
+                </div>
+            </div>
+        </div>
+        <div id="myloaded" class="container-fluid">
             <div class="row">
                 <div class="col text-center">
                     <h1>Plato Items</h1>
@@ -229,12 +271,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <div id="myloading">
-                        <img src="https://platoitems.github.io/docs/assets/images/loading.gif" />
-                    </div>
-                    <div id="mytable">
 {{ content }}
-                    </div>
                 </div>
             </div>
         </div>
