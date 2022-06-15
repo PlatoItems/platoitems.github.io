@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="List of every Plato item with images and audios">
         <title>Plato Items</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css">
@@ -86,7 +87,21 @@
             
             audio
             {
-                margin-bottom:10px !important;
+                display:block;
+                margin:0 auto;
+            }
+            
+            .figure
+            {
+                margin:0;
+                margin-bottom:10px;
+            }
+            
+            .figure-caption
+            {
+                font-size:12pt;
+                font-weight:bold;
+                color:#343A40;
             }
             
             .pagination > li > a
@@ -134,7 +149,7 @@
             #comp-table_filter input,
             #comp-table_filter select
             {
-                width:200px !important;
+                width:240px !important;
                 margin:0 !important;
             }
             
@@ -172,15 +187,22 @@
             #comp-modal .modal-header,
             #comp-modal .modal-footer
             {
-                padding:0;
-                margin-top:-6px;
-                margin-right:4px;
+                padding-top:0;
+                padding-bottom:0;
+                padding-left:28px;
                 border:none;
             }
             
-            #comp-modal .modal-header button
+            #comp-modal .modal-title
             {
-                font-size:30pt;
+                font-weight:bold;
+            }
+            
+            #comp-modal .modal-header button.close
+            {
+                padding-left:6px;
+                padding-right:6px;
+                font-size:21pt;
             }
             
             /*
@@ -204,9 +226,12 @@
             
             function on_ready ( ) {
             
+                var search = decodeURI( location.hash.substr( 1 ) );
+                history.replaceState( null, null, ' ' );
+            
                 var table = $( '#comp-table' ).DataTable
                 ( {
-                    'search'       : { 'search' : decodeURI( location.hash.substr( 1 ) ) },
+                    'search'       : { 'search' : search },
                     'lengthMenu'   : [ 25, 50, 75, 100 ],
                     'order'        : [ ],
                     'initComplete' : on_table, // function ( ) { setTimeout( on_table.bind( this ), 1000 ) },
@@ -223,14 +248,26 @@
                     },
                     'columnDefs' :
                     [
-                        { 'targets' : [ 4, 5, 6 ], 'visible' : false },
+                        {
+                            'targets'    : [ 4, 5, 6, 7, 8, 9 ],
+                            'visible'    : false,
+                          //'searchable' : false,
+                            'orderable'  : false,
+                        },
                     ],
                 } );
                 
-                table.on( 'search.dt', function ( ) { 
+                //table.on( 'search.dt', function ( ) { 
                     
-                    history.pushState( null, null, '#' + table.search( ) );
+                    //history.pushState( null, null, '#' + table.search( ) );
                     
+                //} );
+                
+                table.on( 'page.dt', function ( ) {
+                
+                    $( 'html, body' ).animate( { scrollTop : $( '#comp-table' ).offset( ).top }, 'fast' );
+                    $( '#comp-table thead tr th:first-child' ).focus( ).blur( );
+                
                 } );
                 
             }
@@ -251,8 +288,11 @@
                               //$( '<option disabled selected>&lt;Category&gt;</option>'                                   ).appendTo ( menu_cat );
                                 $( '<option value="" selected>Any Category</option>'                                       ).appendTo ( menu_cat );
                                 $( '<option value="4=1">New</option>'                                                      ).appendTo ( menu_cat );
-                                $( '<option value="5=1">Rare</option>'                                                     ).appendTo ( menu_cat );
-                                $( '<option value="6=1">Tournament</option>'                                               ).appendTo ( menu_cat );
+                                $( '<option value="5=1">Discounted</option>'                                               ).appendTo ( menu_cat );
+                                $( '<option value="6=1">Rare</option>'                                                     ).appendTo ( menu_cat );
+                                $( '<option value="7=1">Tournament Prize</option>'                                         ).appendTo ( menu_cat );
+                                $( '<option value="8=1">Ranked Prize</option>'                                             ).appendTo ( menu_cat );
+                                $( '<option value="9=1">Event Prize</option>'                                              ).appendTo ( menu_cat );
 
                 api.column( 0 ).data( ).unique( ).sort( ).each( function ( type ) {
                 
@@ -287,6 +327,81 @@
                 
                 } );
                 
+                var modal      = $( '#comp-modal'               );
+                var modal_head = $( '#comp-modal .modal-title'  );
+                var modal_body = $( '#comp-modal .modal-body'   );
+                var modal_foot = $( '#comp-modal .modal-footer' );
+                
+                $( '#comp-table tbody' ).on( 'click', 'tr', function ( ) {
+
+                    var id   = $( this ).data( 'id' );
+                    var name = $( this ).find( 'td:eq(1)' ).text( );
+
+                    modal_head.html( name );
+                    modal_body.css( 'display', 'none' );
+                    modal_body.empty( );
+                    
+                    var images = med[id]['image'];
+                    var audios = med[id]['audio'];
+
+                    if ( typeof images !== 'undefined' && images.length > 0 ) {
+                    
+                        $( images ).each( function ( ) {
+                        
+                            var type = this['type'];
+                            var uri  = 'https://profile.platocdn.com/' + this['uri'];
+
+                            var img     = new Image( );
+                            img.onload  = function ( ) { modal_body.css( 'display', 'block' ) }
+                            img.onerror = function ( ) { modal_body.css( 'display', 'block' ) }
+                            img.src     = uri;
+                            
+                            modal_body.append
+                            ( '\
+                                <div class="row">\
+                                    <div class="col text-center">\
+                                        <img class="d-block w-100" src="' + uri + '" />\
+                                    </div>\
+                                </div>\
+                            ' );
+                        
+                        } );
+                        
+                    }
+                    
+                    if ( typeof audios !== 'undefined' && audios.length > 0 ) {
+                    
+                        $( audios ).each( function ( ) {
+                        
+                            var type = this['type'];
+                            var uri  = 'https://game-assets-prod.platocdn.com/' + this['uri'];
+
+                            modal_body.append
+                            ( '\
+                                <div class="row">\
+                                    <div class="col text-center">\
+                                        <figure class="figure">\
+                                            <figcaption class="figure-caption">' + type + '</figcaption>\
+                                            <audio controls controlsList="nodownload"><source type="" src="' + uri + '"><a href="' + uri + '" target="_blank">' + type + '</a></audio>\
+                                        </figure>\
+                                    </div>\
+                                </div>\
+                            ' );
+                        
+                        } );
+                        
+                    }
+
+                    modal.modal( 'show' );
+                
+                } );
+                
+                $( '#comp-table tbody' ).on( 'click', 'tr a', function ( e ) {
+
+                    e.stopPropagation( );
+                
+                } );
+                
                 $( '#comp-modal' ).on( 'hide.bs.modal', function ( ) {
 
                     $( 'audio' ).each( function ( ) {
@@ -310,79 +425,17 @@
 
             }
             
-            function modal_open ( id ) {
-
-                var modal      = $( '#comp-modal'             );
-                var modal_body = $( '#comp-modal .modal-body' );
-
-                modal_body.empty( );
-                modal_body.css  ( 'display', 'none' );
-                
-                var images = med[id]['image'];
-                var audios = med[id]['audio'];
-
-                if ( typeof images !== 'undefined' && images.length > 0 ) {
-                
-                    $( images ).each( function ( ) {
-                    
-                        var type = this['type'];
-                        var uri  = 'https://profile.platocdn.com/' + this['uri'];
-
-                        var img = new Image( );
-                        img.onload = function ( ) { modal_body.css( 'display', 'block' ) }
-                        img.src = uri;
-                        
-                        modal_body.append
-                        ( '\
-                            <div class="row">\
-                                <div class="col text-center">\
-                                    <img class="d-block w-100" src="' + uri + '" />\
-                                </div>\
-                            </div>\
-                        ' );
-                    
-                    } );
-                    
-                }
-                
-                if ( typeof audios !== 'undefined' && audios.length > 0 ) {
-                
-                    $( audios ).each( function ( ) {
-                    
-                        var type = this['type'];
-                        var uri  = 'https://game-assets-prod.platocdn.com/' + this['uri'];
-                        
-                        modal_body.append
-                        ( '\
-                            <div class="row">\
-                                <div class="col text-center">\
-                                    <b>' + type + '</b>\
-                                </div>\
-                            </div>\
-                            <div class="row">\
-                                <div class="col text-center">\
-                                    <audio controls controlsList="nodownload"><source type="" src="' + uri + '"><a href="' + uri + '" target="_blank">' + type + '</a></audio>\
-                                </div>\
-                            </div>\
-                        ' );
-                    
-                    } );
-                    
-                }
-
-                modal.modal( 'show' );
-                
-            }
-            
         </script>
     </head>
     <body oncontextmenu="return false;">
         <div id="comp-loading" class="container-fluid">
+            <!--
             <div class="row">
                 <div class="col vh-100 d-flex justify-content-center align-items-center">
                     <img src="https://platoitems.github.io/docs/assets/images/loading.gif" />
                 </div>
             </div>
+            -->
         </div>
         <div id="comp-loaded" class="container-fluid">
             <div class="row">
@@ -400,10 +453,12 @@
         <div id="comp-modal" class="modal fade" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <div class="modal-header text-center">
+                        <h5 class="modal-title w-100"></h5>
+                        <button class="close" type="button" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body"></div>
+                    <div class="modal-footer"></div>
                 </div>
             </div>
         </div>
