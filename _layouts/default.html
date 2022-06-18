@@ -25,6 +25,8 @@
             {
                 margin:0;
                 padding:0;
+                padding-top:30px;
+                padding-bottom:30px;
                 /*height:100%;*/
                 color:#343A40;
             }
@@ -113,7 +115,7 @@
             
             .pagination > li.active > a
             {
-                color:#ffffff !important;
+                color:#FFFFFF !important;
                 background-color:#343A40 !important;
                 border:1px solid #DEE2E6 !important;
             }
@@ -131,34 +133,23 @@
             #comp-loading
             {
                 display:block;
-                padding-top:30px;
+            }
+            
+            #comp-loading img
+            {
+                width:80px;
             }
             
             #comp-loaded
             {
                 display:none;
-                padding-top:30px;
-                padding-bottom:30px;
-            }
-            
-            .img-loading,
-            .img-loaded
-            {
-                width:80px;
-            }
-            
-            .datetime
-            {
-                display:block;
-                margin-top:10px;
-                margin-bottom:10px;
             }
             
             #comp-table_filter input,
             #comp-table_filter select
             {
-                width:240px !important;
                 margin:0 !important;
+                width:240px !important;
             }
             
             #comp-table_filter input
@@ -201,12 +192,12 @@
                 border:none;
             }
             
-            #comp-modal .modal-title
+            #comp-modal .modal-header .modal-title
             {
                 font-weight:bold;
             }
             
-            #comp-modal .modal-header button.close
+            #comp-modal .modal-header .close
             {
                 padding-left:6px;
                 padding-right:6px;
@@ -227,9 +218,16 @@
             }
             */
             
+            .datetime
+            {
+                display:block;
+                margin-top:10px;
+                margin-bottom:10px;
+            }
+            
         </style>
         <script type="text/javascript">
-
+        
             $( document ).ready( on_ready );
             
             function on_ready ( ) {
@@ -259,17 +257,17 @@
                         {
                             'targets'    : [ 4, 5, 6, 7, 8, 9 ],
                             'visible'    : false,
-                          //'searchable' : false,
                             'orderable'  : false,
+                            'searchable' : true,
                         },
                     ],
                 } );
                 
-                //table.on( 'search.dt', function ( ) { 
+              //table.on( 'search.dt', function ( ) {
                     
-                    //history.pushState( null, null, '#' + table.search( ) );
+                  //history.replaceState( null, null, '#' + table.search( ) );
                     
-                //} );
+              //} );
                 
                 table.on( 'page.dt', function ( ) {
                 
@@ -422,37 +420,51 @@
                     } );
                 
                 } );
-                
+
                 $( '#comp-table'                ).addClass( 'table table-sm table-bordered small' );
                 $( '#comp-table thead'          ).addClass( 'thead-dark' );
                 $( '#comp-table th'             ).addClass( 'w-25' );
                 $( '#comp-table_wrapper > .row' ).addClass( 'align-items-end' );
 
-                $( '#comp-loading' ).css( 'display', 'none'  );
-                $( '#comp-loaded'  ).css( 'display', 'block' );
+              //$( '#comp-loading' ).css( 'display', 'none'  );
+                $( '#comp-loaded'  ).fadeIn( 300 ); // .css( 'display', 'block' );
 
+            }
+
+            function on_image ( ) {
+            
+                var img = new Image( );
+                img.src = 'https://platoitems.github.io/docs/assets/images/loaded.png';
+            
+                setTimeout( function ( ) {
+                
+                    $( '#comp-loading img' ).attr( 'src', img.src );
+                
+                }, 3000 );
+            
             }
             
         </script>
     </head>
     <body oncontextmenu="return false;">
-        <div id="comp-loading" class="container-fluid">
-            <div class="row">
-                <div class="col text-center">
-                    <img class="img-loading" src="https://platoitems.github.io/docs/assets/images/loading.gif" alt="Plato Items" />
+        <div class="container-fluid">
+            <div id="comp-loading">
+                <div class="row">
+                    <div class="col text-center">
+                        <img alt="Plato Items" src="https://platoitems.github.io/docs/assets/images/loading.gif" onload="on_image( )" />
+                    </div>
                 </div>
             </div>
-        </div>
-        <div id="comp-loaded" class="container-fluid">
-            <div class="row">
-                <div class="col text-center">
-                    <img class="img-loaded" src="https://platoitems.github.io/docs/assets/images/plato.png" alt="Plato Items" />
-                    <span class="datetime"><b>Last Updated:</b> {{ page.datetime }}</span>
+            <div id="comp-loaded">
+                <div class="row">
+                    <div class="col text-center">
+                        <span class="datetime"><b>Last Updated:</b> {{ page.datetime }}</span>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col">
+                <div class="row">
+                    <div class="col">
 {{ content }}
+                    </div>
                 </div>
             </div>
         </div>
