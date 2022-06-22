@@ -49,6 +49,7 @@ Players are restricted in how they can use these slots. Each gold star they own 
 In this concept, every player initially has 2 badge slots. Up to 5 more additional badge slots can be purchased for 10,000 coins each. They can add, remove and reorder badges in these slots.
 
 As part of the migration, gold stars and chat badges become standard badges. Players who currently own gold stars will initially have that number badge slots i.e. 4 gold stars = 6 badge slots.
+
 This will let players have more control over how their profile looks, allowing them to be more creative and unique. They will be able to make use of duplicate badges they currently own. It gives them an incentive to purchase duplicate badges (7 red pixels) or sets of badges (all cats).
 
 ![badge slots](/docs/assets/images/concepts/badgeslots.png)
