@@ -12,6 +12,9 @@ Premium packs contain *very rare* items and can only be obtained through in-app 
 - New premium packs are added to the shop every month, old ones are occasionally and temporarily re-added to the shop.
 
 ![premium packs](/docs/assets/images/concepts/premiumpacks.png)
+<p class="label">Concept: Premium Packs</p>
+
+<hr>
 
 ## Gift Tokens
 
@@ -22,6 +25,9 @@ Gift tokens can be purchased or gifted from the shop. Each costing only 100 coin
 - Prices of exclusive packs may vary from 50 to 250 gift tokens, depending on the rarity of items they contain.
 
 ![gift tokens](/docs/assets/images/concepts/gifttokens.png)
+<p class="label">Concept: Gift Tokens</p>
+
+<hr>
 
 ## Badge Stickers
 
@@ -30,6 +36,9 @@ A badge is only used as cosmetic for your profile. There's little value to it, u
 Plato Team: Roger that. Increasing prices of all badges. They are no longer just badges!
 
 ![badge stickers](/docs/assets/images/concepts/badgestickers.png)
+<p class="label">Concept: Badge Stickers</p>
+
+<hr>
 
 ## Badge Slots
 
@@ -43,5 +52,6 @@ As part of the migration, gold stars and chat badges become standard badges. Pla
 This will let players have more control over how their profile looks, allowing them to be more creative and unique. They will be able to make use of duplicate badges they currently own. It gives them an incentive to purchase duplicate badges (7 red pixels) or sets of badges (all cats).
 
 ![badge slots](/docs/assets/images/concepts/badgeslots.png)
+<p class="label">Concept: Badge Slots</p>
 
 
