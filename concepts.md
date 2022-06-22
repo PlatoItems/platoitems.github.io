@@ -55,4 +55,12 @@ This will let players have more control over how their profile looks, allowing t
 ![badge slots](/docs/assets/images/concepts/badgeslots.png)
 <p class="label">Concept: Badge Slots</p>
 
+<hr>
+
+Premium Packs and Exclusive Packs, introduces a new breed of rare items to players that wish to be distinct and unique among others.
+
+Gift Tokens, an appropriate gift for any occasion, allows players to progressively work towards obtaining exclusive items.
+
+Badge Stickers and Slots, introduces a more fun and creative aspect to badges.
+
 
