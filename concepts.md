@@ -6,7 +6,7 @@ title: Plato Concepts
 
 ## Premium Packs @Fear
 
-<div class="blah"><b>test</b></div>
+<p class="label">Concept: Badge Slots</p>
 
 ![premium packs](/docs/assets/images/concepts/premiumpacks.png)
 
@@ -16,6 +16,8 @@ Premium packs contain *very rare* items and can only be obtained through in-app 
 - New premium packs are added to the shop every month, old ones are occasionally and temporarily re-added to the shop.
 
 ## Gift Tokens @Fear
+
+<p class="label">Concept: Badge Slots</p>
 
 ![gift tokens](/docs/assets/images/concepts/gifttokens.png)
 
@@ -27,6 +29,8 @@ Gift tokens can be purchased or gifted from the shop. Each costing only 100 coin
 
 ## Badge Stickers @Fear
 
+<p class="label">Concept: Badge Slots</p>
+
 ![badge stickers](/docs/assets/images/concepts/badgestickers.png)
 
 A badge is only used as cosmetic for your profile. There's little value to it, unless equipped badges could also be sent as stickers in the chat.
@@ -34,6 +38,8 @@ A badge is only used as cosmetic for your profile. There's little value to it, u
 Plato Team: Roger that. Increasing prices of all badges. They are no longer just badges!
 
 ## Badge Slots @abc
+
+<p class="label">Concept: Badge Slots</p>
 
 ![badge slots](/docs/assets/images/concepts/badgeslots.png)
 
