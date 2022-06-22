@@ -6,6 +6,8 @@ title: Plato Concepts
 
 ## Premium Packs @Fear
 
+<div class="blah"><b>test</b></div>
+
 ![premium packs](/docs/assets/images/concepts/premiumpacks.png)
 
 Premium packs contain *very rare* items and can only be obtained through in-app purchases.
