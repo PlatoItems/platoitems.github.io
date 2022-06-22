@@ -16,7 +16,7 @@ Premium packs contain *very rare* items and can only be obtained through in-app 
 
 <hr>
 
-## Gift Tokens
+## Gift Tokens @Fear
 
 Gift tokens can be purchased or gifted from the shop. Each costing only 100 coins, it's not just an item, but a token that you and your friends can collect and later use to claim exclusive packs.
 
@@ -29,7 +29,7 @@ Gift tokens can be purchased or gifted from the shop. Each costing only 100 coin
 
 <hr>
 
-## Badge Stickers
+## Badge Stickers @Fear
 
 A badge is only used as cosmetic for your profile. There's little value to it, unless equipped badges could also be sent as stickers in the chat.
 
@@ -40,7 +40,7 @@ Plato Team: Roger that. Increasing prices of all badges. They are no longer just
 
 <hr>
 
-## Badge Slots
+## Badge Slots @abc
 
 Currently, there are up to 7 slots available next to a player's username for badges, 5 for gold stars, 1 for a chat badge, and 1 for a standard badge.
 
