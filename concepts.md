@@ -6,14 +6,16 @@ title: Plato Concepts
 
 ## Premium Packs @Fear
 
+![premium packs](/docs/assets/images/concepts/premiumpacks.png)
+
 Premium packs contain *very rare* items and can only be obtained through in-app purchases.
 
 - Items inside a premium pack cannot be gifted or purchased with coins.
 - New premium packs are added to the shop every month, old ones are occasionally and temporarily re-added to the shop.
 
-![premium packs](/docs/assets/images/concepts/premiumpacks.png)
+## Gift Tokens @Fear
 
-## Gift Tokens
+![gift tokens](/docs/assets/images/concepts/gifttokens.png)
 
 Gift tokens can be purchased or gifted from the shop. Each costing only 100 coins, it's not just an item, but a token that you and your friends can collect and later use to claim exclusive packs.
 
@@ -21,17 +23,17 @@ Gift tokens can be purchased or gifted from the shop. Each costing only 100 coin
 - Exclusive packs can only be purchased from the shop with gift tokens.
 - Prices of exclusive packs may vary from 50 to 250 gift tokens, depending on the rarity of items they contain.
 
-![gift tokens](/docs/assets/images/concepts/gifttokens.png)
+## Badge Stickers @Fear
 
-## Badge Stickers
+![badge stickers](/docs/assets/images/concepts/badgestickers.png)
 
 A badge is only used as cosmetic for your profile. There's little value to it, unless equipped badges could also be sent as stickers in the chat.
 
 Plato Team: Roger that. Increasing prices of all badges. They are no longer just badges!
 
-![badge stickers](/docs/assets/images/concepts/badgestickers.png)
+## Badge Slots @abc
 
-## Badge Slots
+![badge slots](/docs/assets/images/concepts/badgeslots.png)
 
 Currently, there are up to 7 slots available next to a player's username for badges, 5 for gold stars, 1 for a chat badge, and 1 for a standard badge.
 
@@ -41,7 +43,5 @@ In this concept, every player initially has 2 badge slots. Up to 5 more addition
 
 As part of the migration, gold stars and chat badges become standard badges. Players who currently own gold stars will initially have that number badge slots i.e. 4 gold stars = 6 badge slots.
 This will let players have more control over how their profile looks, allowing them to be more creative and unique. They will be able to make use of duplicate badges they currently own. It gives them an incentive to purchase duplicate badges (7 red pixels) or sets of badges (all cats).
-
-![badge slots](/docs/assets/images/concepts/badgeslots.png)
 
 
