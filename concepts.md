@@ -4,6 +4,8 @@ title: Plato Concepts
 ---
 # Concepts
 
+<hr>
+
 ## Premium Packs @Fear
 
 Premium packs contain *very rare* items and can only be obtained through in-app purchases.
