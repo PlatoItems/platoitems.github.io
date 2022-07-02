@@ -91,12 +91,15 @@
             {
                 display:block;
                 margin:0 auto;
+                width:100%;
+                max-width:300px;
             }
             
             .figure
             {
                 margin:0;
                 margin-bottom:10px;
+                width:100%;
             }
             
             .figure-caption
@@ -284,21 +287,21 @@
             
                 $( '<br>' ).prependTo( '#comp-table_filter' );
                 
-                var menu_type = $( '<select class="custom-select custom-select-sm form-control form-control-sm"></select>' ).appendTo ( $( '<label></label>' ).prependTo( '#comp-table_filter' ) );
-                              //$( '<option disabled selected>&lt;Type&gt;</option>'                                       ).appendTo ( menu_type );
-                                $( '<option value="" selected>Any Type</option>'                                           ).appendTo ( menu_type );
+                var menu_type = $( '<select class="custom-select custom-select-sm form-control form-control-sm"></select>' ).appendTo( $( '<label></label>' ).prependTo( '#comp-table_filter' ) );
+                              //$( '<option disabled selected>&lt;Type&gt;</option>'                                       ).appendTo( menu_type );
+                                $( '<option value="" selected>Any Type</option>'                                           ).appendTo( menu_type );
                 
                 $( '<br>' ).prependTo( '#comp-table_filter' );
                 
-                var menu_cat  = $( '<select class="custom-select custom-select-sm form-control form-control-sm"></select>' ).appendTo ( $( '<label></label>' ).prependTo( '#comp-table_filter' ) );
-                              //$( '<option disabled selected>&lt;Category&gt;</option>'                                   ).appendTo ( menu_cat );
-                                $( '<option value="" selected>Any Category</option>'                                       ).appendTo ( menu_cat );
-                                $( '<option value="4=1">New</option>'                                                      ).appendTo ( menu_cat );
-                                $( '<option value="5=1">Discounted</option>'                                               ).appendTo ( menu_cat );
-                                $( '<option value="6=1">Rare</option>'                                                     ).appendTo ( menu_cat );
-                                $( '<option value="7=1">Tournament Prize</option>'                                         ).appendTo ( menu_cat );
-                                $( '<option value="8=1">Ranked Prize</option>'                                             ).appendTo ( menu_cat );
-                                $( '<option value="9=1">Event Prize</option>'                                              ).appendTo ( menu_cat );
+                var menu_cat  = $( '<select class="custom-select custom-select-sm form-control form-control-sm"></select>' ).appendTo( $( '<label></label>' ).prependTo( '#comp-table_filter' ) );
+                              //$( '<option disabled selected>&lt;Category&gt;</option>'                                   ).appendTo( menu_cat );
+                                $( '<option value="" selected>Any Category</option>'                                       ).appendTo( menu_cat );
+                                $( '<option value="4=1">New</option>'                                                      ).appendTo( menu_cat );
+                                $( '<option value="5=1">Discounted</option>'                                               ).appendTo( menu_cat );
+                                $( '<option value="6=1">Rare</option>'                                                     ).appendTo( menu_cat );
+                                $( '<option value="7=1">Tournament Prize</option>'                                         ).appendTo( menu_cat );
+                                $( '<option value="8=1">Ranked Prize</option>'                                             ).appendTo( menu_cat );
+                                $( '<option value="9=1">Event Prize</option>'                                              ).appendTo( menu_cat );
 
                 api.column( 0 ).data( ).unique( ).sort( ).each( function ( type ) {
                 
