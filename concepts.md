@@ -7,6 +7,20 @@ title: Plato Concepts
 
 <div id="element-contents" class="text-left" data-open="false" data-icon="&#xf068;,&#xf067;" data-label="Contents&nbsp;"></div>
 
+## Features
+
+**Public Gifting**
+
+We currently don't have the option of gifting items to players in public rooms or groups. It's a feature that would make those spaces even more interactive and fun. 
+
+In this concept, we are able to select and gift anyone from the list of online participants. Public gifts are announced in the chat for all to see, but we need to ensure that the gift messages are displayed in a less intrusive way.
+
+Why would anyone choose to publicly gift players? It's a show of appreciation and, for some, a flex. 🤑
+Ghost
+The "Ghost" can be purchased as an item, such as a badge. Once equipped, users will no longer see you in the online list of public rooms or groups. This protects player privacy by preventing others from sending friend requests, and helps avoid unwanted interactions in public chat. We need to ensure that the item is costly, as we don't want our entire community to be ghosted.
+
+Note: Even if some players are ghosted, the online list will still show the actual number of online players.
+
 ## Premium Packs @Fear
 
 Premium packs contain *very rare* items and can only be obtained through in-app purchases.
