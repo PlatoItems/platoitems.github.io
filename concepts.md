@@ -29,11 +29,11 @@ Note: Even if some players are ghosted, the online list will still show the actu
 
 **Inactive Members @Rose**
 
-It's difficult to keep track of inactive group members, and group admins often kick players at random to free up space. It would be helpful if there was a separate list that displayed members who had the least amount of activity (time spent online in the group). This should help large groups in replacing inactive members with new active members, resulting in a more active group.
+It's difficult to keep track of inactive group members, and group admins often kick players at random to free up space. It would be helpful if there was a separate list which displayed members who had the least amount of activity (time spent online in the group). This should help large groups in replacing inactive members with new active members, resulting in a more active group.
 
 **Direct Kick @Fear**
 
-When there are too many participants in a group, it can be tedious to find a specific player from the list. An option to directly remove players from within the chat would be extremely useful.
+When there are too many participants in a private group, it can be tedious to find a specific player from the list. An option to directly remove players from within the chat would be extremely useful.
 
 **Increase Group Members @abc**
 
@@ -41,7 +41,7 @@ Currently, groups can have a maximum of 500 members. This isn't practical for ve
 
 **Silent Mode @Fear**
 
-Groups tend to become crowded with online players during tournaments or important events, making it difficult for hosts to effectively share important announcements while the group chat is flooded with messages. It would be very useful for group admins to be able to mute or block messages from members indefinitely.
+Groups tend to become crowded with online players during tournaments or important events, making it difficult for hosts to effectively share important announcements while the group chat is flooded with messages. It would be very useful for group admins to be able to mute or block messages from group members indefinitely.
 
 **Verified Group @Fear**
 
