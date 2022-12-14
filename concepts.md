@@ -49,6 +49,10 @@ A special badge for influential groups or communities selected by server leaders
 
 ## Privacy
 
+**Hyperlink Redirect Notice @abc**
+
+A URL within a message is automatically converted to a clickable hyperlink that links directly to the website. There are risks associated with clicking unknown links, including tracking, phishing, malware etc. Whether they click intentionally or accidentally, it would be safer to provide an intermediate redirect notice, perhaps outlining the risks.
+
 **Account Password @Fear**
 
 This concept can help players secure their accounts and safely change their registered email without compromising account security.
@@ -58,10 +62,6 @@ Players who have registered their accounts will see a new "Account Password" opt
 In case of a forgotten password, they can reset it using a one-time code sent to their registered email. If they do not have access to the registered email, they will be unable to reset the password.
 
 ![Concept: Account Password](/docs/assets/images/concepts/accountpassword.png)
-
-**Hyperlink Redirect Notice @abc**
-
-A URL within a message is automatically converted to a clickable hyperlink that links directly to the website. There are risks associated with clicking unknown links, including tracking, phishing, malware etc. Whether they click intentionally or accidentally, it would be safer to provide an intermediate redirect notice, perhaps outlining the risks.
 
 ## Premium Packs @Fear
 
