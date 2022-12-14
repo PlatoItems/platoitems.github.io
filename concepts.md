@@ -25,22 +25,33 @@ Note: Even if some players are ghosted, the online list will still show the actu
 
 ![Concept: Ghost](/docs/assets/images/concepts/ghost.png)
 
-## Private Group
+### Private Groups
 
 **Inactive Members @Rose**
+
 It's difficult to keep track of inactive group members, and group admins often kick players at random to free up space. It would be helpful if there was a separate list that displayed members who had the least amount of activity (time spent online in the group). This should help large groups in replacing inactive members with new active members, resulting in a more active group.
 
 **Direct Kick @Fear**
+
 When there are too many participants in a group, it can be tedious to find a specific player from the list. An option to directly remove players from within the chat would be extremely useful.
 
 **Increase Group Members @abc**
+
 Currently, groups can have a maximum of 500 members. This isn't practical for very active groups, and active members must be removed to make room for new members. The maximum number of members should be preliminarily increased to 1000. To limit lag, the maximum number of members online at any one time should remain at 500.
 
 **Silent Mode @Fear**
+
 Groups tend to become crowded with online players during tournaments or important events, making it difficult for hosts to effectively share important announcements while the group chat is flooded with messages. It would be very useful for group admins to be able to mute or block messages from members indefinitely.
 
 **Verified Group @Fear**
+
 A special badge for influential groups or communities selected by server leaders. This concept would give much-deserved recognition to active and contributing groups. A verified group would appear at the top of the "Groups" list for all of its participants.
+
+## Privacy
+
+**Hyperlink Redirect Notice @abc**
+
+A URL within a message is automatically converted to a clickable hyperlink that links directly to the website. There are risks associated with clicking unknown links, including tracking, phishing, malware etc. Whether they click intentionally or accidentally, it would be safer to provide an intermediate redirect notice, perhaps outlining the risks.
 
 ## Premium Packs @Fear
 
@@ -53,7 +64,7 @@ Premium packs contain *very rare* items and can only be obtained through in-app 
 
 ## Gift Tokens @Fear
 
-Gift tokens can be purchased or gifted from the shop. Each costing only 100 coins, it's not just an item, but a token that you and your friends can collect and later use to claim exclusive packs.
+Gift tokens can be purchased or gifted from the shop. Each costing only 250 coins, it's not just an item, but a token that you and your friends can collect and later use to claim exclusive packs.
 
 - New exclusive packs containing *very rare* items are added to the shop every month.
 - Exclusive packs can only be purchased from the shop with gift tokens.
