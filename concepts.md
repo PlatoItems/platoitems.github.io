@@ -11,11 +11,11 @@ title: Plato Concepts
 
 We currently don't have the option of gifting items to players in public rooms or groups. It's a feature that would make those spaces even more interactive and fun. 
 
-In this concept, we are able to select and gift anyone from the list of online participants. Public gifts are announced in the chat for all to see, but we need to ensure that the gift messages are displayed in a less intrusive way.
+In this concept, we are able to select and gift anyone from the list of online participants. Public gifts are announced in the chat for all to see, but we need to ensure that the gift messages are not too intrusive.
 
 Why would anyone choose to publicly gift players? It's a show of appreciation and, for some, a flex. 🤑
 
-![Concept: Premium Packs](/docs/assets/images/concepts/publicgifting.png)
+![Concept: Public Gifting](/docs/assets/images/concepts/publicgifting.png)
 
 ## Ghost @Fear
 
@@ -23,7 +23,7 @@ The "Ghost" can be purchased as an item, such as a badge. Once equipped, users w
 
 Note: Even if some players are ghosted, the online list will still show the actual number of online players.
 
-![Concept: Premium Packs](/docs/assets/images/concepts/ghost.png)
+![Concept: Ghost](/docs/assets/images/concepts/ghost.png)
 
 ## Premium Packs @Fear
 
