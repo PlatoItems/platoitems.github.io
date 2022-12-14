@@ -25,7 +25,7 @@ Note: Even if some players are ghosted, the online list will still show the actu
 
 ![Concept: Ghost](/docs/assets/images/concepts/ghost.png)
 
-### Private Groups
+## Private Groups
 
 **Inactive Members @Rose**
 
