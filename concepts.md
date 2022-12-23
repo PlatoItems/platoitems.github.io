@@ -7,6 +7,16 @@ title: Plato Concepts
 
 <div id="element-contents" class="text-left" data-open="false" data-icon="&#xf068;,&#xf067;" data-label="Contents&nbsp;"></div>
 
+## Account Password @Fear
+
+This concept can help players secure their accounts and safely change their registered email without compromising account security.
+
+Players who have registered their accounts will see a new "Account Password" option in Settings. It would allow them to create a password for their accounts, which they can later use to change their registered email.
+
+In case of a forgotten password, they can reset it using a one-time code sent to their registered email. If they do not have access to the registered email, they will be unable to reset the password.
+
+![Concept: Account Password](/docs/assets/images/concepts/accountpassword.png)
+
 ## Public Gifting @Fear
 
 We currently don't have the option of gifting items to players in public rooms or groups. It's a feature that would make those spaces even more interactive and fun. 
@@ -52,16 +62,6 @@ A special badge for influential groups or communities selected by server leaders
 **Hyperlink Redirect Notice @abc**
 
 A URL within a message is automatically converted to a clickable hyperlink that links directly to the website. There are risks associated with clicking unknown links, including tracking, phishing, malware etc. Whether they click intentionally or accidentally, it would be safer to provide an intermediate redirect notice, perhaps outlining the risks.
-
-**Account Password @Fear**
-
-This concept can help players secure their accounts and safely change their registered email without compromising account security.
-
-Players who have registered their accounts will see a new "Account Password" option in Settings. It would allow them to create a password for their accounts, which they can later use to change their registered email.
-
-In case of a forgotten password, they can reset it using a one-time code sent to their registered email. If they do not have access to the registered email, they will be unable to reset the password.
-
-![Concept: Account Password](/docs/assets/images/concepts/accountpassword.png)
 
 ## Premium Packs @Fear
 
